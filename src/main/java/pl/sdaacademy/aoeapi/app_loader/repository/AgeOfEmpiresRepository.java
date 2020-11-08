@@ -11,13 +11,14 @@ public class AgeOfEmpiresRepository {
     private final RestTemplate restTemplate;
 
     @Autowired
-    public AgeOfEmpiresRepository(@Value("https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations") String url, RestTemplate restTemplate) {
+    public AgeOfEmpiresRepository(@Value("https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations") String url,
+                                  RestTemplate restTemplate) {
         this.url = url;
         this.restTemplate = restTemplate;
     }
 
     public CivilizationResponse getCivilization() {
-        return restTemplate.getForObject(String.format(url), CivilizationResponse.class);
+        return restTemplate.getForObject(url, CivilizationResponse.class);
     }
 
 }
